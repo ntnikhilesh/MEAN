@@ -50,6 +50,14 @@ app.get('/',(req,res)=>{
     res.send('Invalid end point');
 })
 
+//Every route must goto index.html
+
+app.get("*",(req,res)=>
+{
+    res.sendFile(path.join(__dirname,'public/index.html'));
+})
+
+
 app.use('/users',users);
 
 app.listen(port,()=>{
